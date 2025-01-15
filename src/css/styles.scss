@@ -1,0 +1,1488 @@
+//Declaring Variables
+$highlight:#0FAA97;
+$background:#F3F6F9;
+$text:#0A1015;
+$white:#ffffff;
+$secondary:#A7B1BC;
+$hover1:#0E665B;
+$hover2:#213545;
+
+
+//Mixings
+@mixin textMaker($size, $weight, $color){
+    font-size:$size;
+    font-weight:$weight;
+    color:$color;
+}
+
+@mixin divMaker($pt,$pb,$pl,$pr,$mt,$mb){
+    padding:$pt $pr $pb $pl;
+    border-radius:10px;
+    margin-top:$mt;
+    margin-bottom:$mb;
+    borders:none;
+    -webkit-box-shadow: -1px 3px 4px 0px rgba(18,30,41,0.16);
+    -moz-box-shadow: -1px 3px 4px 0px rgba(18,30,41,0.16);
+    box-shadow: -1px 3px 4px 0px rgba(18,30,41,0.16);
+}
+
+@mixin inputMaker(){
+    border-radius:5px;
+    outline:none;
+    border:1px solid $secondary;
+    width:100%;
+    padding:10px 20px 10px 20px;
+    @include textMaker(0.93rem,400 ,$text );
+
+    &::placeholder {
+        color: $secondary; 
+    }
+
+    &:focus {
+        border-color:$highlight; 
+    }
+}
+
+@mixin buttonMaker(){
+    border-radius:40px;
+    padding:10px 20px 10px 20px;
+    text-align: center;
+    -webkit-box-shadow: -1px 3px 4px 0px rgba(18,30,41,0.24);
+    -moz-box-shadow: -1px 3px 4px 0px rgba(18,30,41,0.24);
+    box-shadow: -1px 3px 4px 0px rgba(18,30,41,0.24);
+}
+
+
+//Begining Styles
+.Header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:20px;
+
+    img{
+        width:160px;
+        height:auto;
+    }
+}
+
+.Header-link{
+    @include buttonMaker();
+    background-color: $highlight;
+    @include textMaker(0.83rem,700 ,$white );
+
+    &:hover{
+        background-color: $hover1;
+        transition:0.3s ease-in-out;
+    }
+}
+
+.hero{
+    background-image:url('../images/bg.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+.hero-cont{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:60px;
+    gap:20px;
+    text-align: center;
+
+    h1{
+        @include textMaker(3rem,700 ,$text );
+        span{
+            background: linear-gradient(to right, #0FAA97, #E760EE);
+            -webkit-background-clip: text; /* Clips the background to the text */
+            -webkit-text-fill-color: transparent; /* Makes the text transparent to show the background */
+            background-clip: text; /* Standard property */
+            color: transparent; /* Fallback for older browsers */
+            font-weight:900;
+        }
+    }
+
+    p{
+        @include textMaker(1.2rem,400,$text);
+        margin-top:15px;
+        width:50%;
+
+        @media (max-width: 1024px) {  /* Mobile breakpoint */
+            width: 100%;  /* Full width on mobile */
+        }
+    }
+
+    img{
+        width:70%;
+        height:auto;
+
+        @media (max-width: 768px) {  /* Mobile breakpoint */
+            width: 100%;  /* Full width on mobile */
+        }
+
+        &:hover{
+            scale:1.063;
+            transition: 0.6s ease-in-out;
+        }
+    }
+
+    .dashes{
+        width:90%;
+        margin-top:20px;
+
+        @media (max-width:768){
+            width:100%;
+        }
+    }
+}
+
+
+.about{
+    background-color: $white;
+    border-radius:10px;
+    margin-bottom:20px;
+    padding:40px 50px 40px 50px;
+
+    h1{
+        @include textMaker(2rem,700 ,$text );
+        margin-top:50px;
+
+        @media (max-width:1230px){
+            margin-top:20px;
+        }
+
+        span{
+            color:$highlight;
+        }
+    }
+
+    p{
+        @include textMaker(1rem,400 ,$text );
+        margin-top:20px;
+        margin-bottom:30px;
+        width:90%;
+
+        @media (max-width:1024px){
+            font-size:0.83rem;
+        }
+    }
+
+    img{
+        width:60%;
+
+
+        &:hover{
+            scale:1.063;
+            transition: 0.3s ease-in-out;
+        }
+
+        @media (max-width:1024px){
+            width:100%;
+        }
+    }
+}
+
+.why-title{
+    margin-top:40px;
+    margin-bottom:40px;
+    text-align: center;
+
+    h1{
+        @include textMaker(3rem,700 ,$text );
+        span{
+            font-weight:900;
+            background: linear-gradient(to right, #0FAA97, #E760EE);
+            -webkit-background-clip: text; /* Clips the background to the text */
+            -webkit-text-fill-color: transparent; /* Makes the text transparent to show the background */
+            background-clip: text; /* Standard property */
+            color: transparent; /* Fallback for older browsers */
+        }
+    }
+
+    p{
+        @include textMaker(1rem,400 ,$text );
+        margin-top:20px;
+    }
+
+    
+}
+
+.icon-block{
+    @include divMaker(30px,30px ,20px ,20px ,20px ,40px );
+    background-color: $white;
+    margin-bottom:30px;
+
+    h2{
+        @include textMaker(1.2rem,700 ,$text );
+        margin-top:15px;
+    }
+
+    p{
+        @include textMaker(0.83rem,400 ,$text );
+        margin-top:15px;
+        margin-bottom:20px;
+    }
+
+    img{
+        width:110px;
+        height:auto;
+    }
+
+    Link{
+        display:flex;
+        justify-content: flex-start;
+        align-items: center;
+        @include textMaker(0.83rem,700 ,$highlight );
+    }
+}
+
+.why-link{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    @include textMaker(0.93rem,700 ,$highlight );
+    gap:5px;
+
+    img{
+        width:25px;
+        height:auto;
+    }
+
+    &:hover{
+        color:$hover1;
+        gap:16px;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.Banner{
+    background-image:url(../images/bg2.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    padding:60px 90px 60px 40px;
+    border-radius:10px 160px 10px 10px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items: center;
+    margin-bottom:30px;
+
+    h1{
+        @include textMaker(2.3rem,400 ,$white );
+
+        span{
+            font-weight:900;
+        }
+    }
+
+    p{
+        @include textMaker(1rem,400 ,$white );
+        margin-bottom:20px;
+    }
+}
+
+.landing-footer{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+    p{
+        @include textMaker(1rem,700,$text);
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+
+    img{
+        margin-top:40px;
+    }
+}
+
+
+.header{
+    @include divMaker(20px,10px ,20px ,20px ,20px ,20px );
+    background-color: $white;
+
+    .logo{
+        width:76%;
+
+        @media (max-width:460px){
+            width:100%;
+        }
+    }
+
+    button{
+        img{
+            width:60px;
+            height:auto;
+
+            &:hover{
+                scale:1.13;
+                transition: 0.3s ease-in-out;
+            }
+
+            @media (max-width:430px){
+                width:40px;
+                height:auto;
+            }
+        }
+    }
+}
+
+.toggle-wrapper{
+    background-color: $background;
+    padding:5px;
+    border-radius:40px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    @include textMaker(0.93rem,400 ,$text );
+
+    .activelink{
+        @include buttonMaker();
+        background-color: $highlight;
+        @include textMaker(0.93rem,400 ,$white );
+        width:50%;
+
+        &:hover{
+            background-color: $hover1;
+            transition:0.3s ease-in-out;
+        }
+    }
+
+    .Link{
+        &:hover{
+            font-weight:700;
+            transition: 0.3s ease-in-out;
+        }
+    }
+    
+}
+
+.candlink{
+    @include buttonMaker();
+    background-color: $text;
+    @include textMaker(0.93rem,400 ,$white );
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    
+    img{
+        width:20px;
+        height:auto;
+    }
+
+    &:hover{
+        background-color: $hover2;
+        transition: 0.3s ease-in-out;
+    }
+
+}
+
+.joblink{
+    @include buttonMaker();
+    background-color: $highlight;
+    @include textMaker(0.93rem,400 ,$white );
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    
+    img{
+        width:20px;
+        height:auto;
+    }
+
+    &:hover{
+        background-color: $hover1;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+
+.menuwrapper {
+    position: fixed;         /* Makes it fixed to the viewport */
+    top: 0;                  /* Starts from the top of the screen */
+    left: 0;                 /* Starts from the left of the screen */
+    width: 100vw;            /* Full width */
+    height: 100vh;           /* Full height */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    display: flex;
+    justify-content: center; /* Center the menu vertically and horizontally */
+    align-items: center;     /* Align items to the center */
+    z-index: 999;    
+    
+    button{
+        position:absolute;
+        top:40px;
+        right:40px;
+        width:60px;
+        height:auto;
+
+        &:hover{
+            scale:1.13;
+            transition: 0.3s ease-in-out;
+        }
+    }/* Ensures it's above everything else */
+  }
+  
+  .openmenu {
+    background: white;       /* White background for the menu container */
+    padding: 20px;           /* Adds padding inside the container */
+    border-radius: 8px;      /* Optional rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    text-align: center;      /* Center-aligns the links */
+    width: 80%;              /* Responsive width */
+    max-width: 400px;        /* Maximum width */
+  }
+  
+  .openmenu a {
+    display: block;          /* Each link takes full width */
+    padding: 15px 0;         /* Padding for clickable area */
+    text-decoration: none;   /* Removes underline */
+    color: $text;             /* Text color */
+    font-size: 18px;         /* Font size */
+    font-weight: 500;        /* Slightly bold */
+    border-bottom: 1px solid #ddd; /* Adds a line between links */
+  }
+  
+  .openmenu a:last-child {
+    border-bottom: none;     /* Removes border for the last link */
+  }
+  
+  .openmenu a:hover {
+    background:$highlight;
+    border-radius:40px;
+    color:$white;
+    transition: 0.3s ease-in-out;    /* Light gray hover effect */
+  }
+  
+  /* Media Query for Mobile */
+  @media (max-width: 768px) {
+    .menuwrapper {
+      padding: 0 10px;       /* Small padding for better responsiveness */
+    }
+  }
+  
+
+
+.footer{
+    @include divMaker(20px,10px ,20px ,20px ,20px ,20px );
+    background-color: $white;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap;
+    @include textMaker(0.83rem,700 ,$secondary );
+
+    @media (max-width:760px){
+        justify-content: space-around;
+    }
+
+    .footer-r{
+        display:flex;
+        align-items: center;
+        gap:10px;
+
+        @media (max-width:760px){
+            margin-top:30px;
+        }
+
+        img{
+            width:50px;
+            height:auto;
+        }
+    }
+}
+
+.inputblock{
+    @include divMaker(20px,40px ,30px ,30px ,0px , 0px);
+    background-color: $white;
+
+    h1{
+        @include textMaker(2rem,700 ,$text );
+        margin-bottom:20px;
+    }
+
+    img{
+        width:60px;
+        height:auto;
+
+        &:hover{
+            scale:1.13;
+            transition: 0.3s ease-in-out;
+        }
+    }
+
+    .inputblockhead{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    label{
+        @include textMaker(0.73rem,700 ,$secondary );
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom:20px;
+    }
+
+    input[type=text], input{
+        width:100%;
+        @include inputMaker();
+        margin-top:10px;
+    }
+
+    input[type=datetime-local], input[type=number]{
+        width:100%;
+        @include inputMaker();
+        margin-top:10px;
+    }
+
+    textarea{
+        width:100%;
+        @include inputMaker();
+        margin-top:10px;
+    }
+
+    select{
+        width:100%;
+        @include inputMaker();
+        margin-top:10px;
+    }
+    
+}
+
+.actionblock{
+    @include divMaker(30px,30px ,30px ,30px ,20px ,0px );
+    background-color: $white;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:30px;
+    flex-wrap:wrap;
+
+    h2{
+       @include textMaker(1.4rem,700 ,$text ); 
+       margin-bottom:15px;
+    }
+
+    button{
+        @include buttonMaker();
+        background-color: $highlight;
+        @include textMaker(0.9rem,700 ,$white );
+
+        &:hover{
+            background-color: $hover1;
+            transition: 0.3s ease-in-out;
+        }
+    }
+
+    img{
+        width:113px;
+        height:auto;
+    }
+}
+
+.displayblock{
+    @include divMaker(30px,30px ,30px ,30px ,0px ,0px );
+    background-color: $white;
+
+    .info{
+        
+
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap:15px;
+
+        span{
+             border:none;
+             border-radius:40px;
+             padding:10px 20px 10px 20px;
+             @include textMaker(0.73rem,700 ,$white );
+             background-color: $secondary;
+        }
+    }
+
+    .displayheader{
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+        flex-wrap:wrap;
+        margin-top:20px;
+
+        h1{
+            @include textMaker(2rem,700 ,$text );
+        }
+
+        div{
+
+            display:flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap:15px;
+            flex-wrap:wrap;
+
+            img{
+                width:60px;
+                height:auto;
+
+                &:hover{
+                    scale:1.13;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+            .secondary, .primary{
+                @include buttonMaker();
+                @include textMaker(0.83rem,700 ,$white );
+            }
+
+            .secondary{
+                background-color: $text;
+
+                &:hover{
+                    background-color: $hover2;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+            .primary{
+                background-color: $highlight;
+                &:hover{
+                    background-color: $hover1;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .displayElement{
+        background-color: $background;
+        border-radius:10px;
+        padding:20px;
+        margin-top:15px;
+
+        h4{
+            @include textMaker(0.73rem,700 ,$secondary );
+            text-transform: uppercase;
+            letter-spacing:3px;
+
+            span{
+                @include textMaker(2.3rem,700 ,$highlight );
+                letter-spacing: 0px;
+            }
+        }
+
+        p{
+            @include textMaker(1rem,400 ,$text );
+            margin-top:10px;
+        }
+
+        .subElement{
+            background-color: $white;
+            border-radius:10px;
+            padding:10px;
+            width:100%;
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap:15px;
+            margin-top: 15px;
+            @include textMaker(1rem,700 ,$secondary );
+
+            img{
+                width:20px;
+                height:auto;
+            }
+        }
+    }
+
+    .displayFooter{
+        margin-top:40px;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap:wrap;
+
+        div{
+            display:flex;
+            justify-content: flex-end;
+            gap:15px;
+            align-items: center;
+            background-color: $background;
+            padding:10px;
+            border:none;
+            border-radius:5px;
+
+            img{
+                width:23px;
+                height:auto;
+            }
+
+            @include textMaker(0.83rem,700 ,$secondary );
+
+            span{
+                color:$highlight;
+            }
+
+            div{
+                padding:0;
+            }
+
+        }
+    }
+
+    .displayTabs{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap:15px;
+        
+
+        button{
+            @include textMaker(1rem,400 ,$text );
+            
+            &:hover{
+                color:$hover2;
+                transition: 0.3s ease-in-out;
+                font-weight:700;
+            }
+            
+        }
+
+        .active{
+            border-bottom:3px solid $highlight;
+            @include textMaker(1rem,700 ,$highlight );
+
+            &:hover{
+                color:$hover1;
+                transition: 0.3s ease-in-out;
+                border-bottom:3px solid $hover1;
+            }
+        }
+    }
+
+    .displayStats{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap:wrap;
+        gap:15px;
+        @include textMaker(1rem,700 ,$text );
+
+        span{
+            @include textMaker(2rem,700 ,$highlight );
+        }
+
+        img{
+            width:50px;
+            height:auto;
+
+            &:hover{
+                scale:1.13;
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }
+
+    .displayFoot{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        gap:20px;
+        flex-wrap:wrap;
+        margin-top:20px;
+
+        button{
+            &:hover{
+                scale:1.13;
+                transition: 0.3s ease-in-out;
+            }
+        }
+
+        div{
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap:15px;
+        }
+
+        .primary{
+            background-color: $highlight;
+            @include buttonMaker();
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap:wrap;
+            gap:15px;
+            @include textMaker(0.83rem,700 ,$white );
+
+            img{
+                width:26px;
+                height:auto;
+            }
+
+            &:hover{
+                scale:1;
+                background-color: $hover1;
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }
+
+    
+}
+
+.round-image {
+    width: 70px; // Set the desired width
+    height: 70px; // Set the desired height (equal to width for a perfect circle)
+    border-radius: 50%; // Makes it round
+    object-fit: cover; // Ensures the image fills the circle without distortion
+    overflow: hidden; // Prevents any content from spilling outside the circle
+    border:none;
+  }
+
+.CandidateMin{
+    background-color: $background;
+    border-radius:10px;
+    padding:10px 20px 10px 20px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:15px;
+
+    div{
+        display:flex;
+        align-items: center;
+        gap:10px;
+        justify-content: flex-start;
+
+        div{
+            display:block;
+        }
+
+      
+    }
+
+    button{
+        margin-left:auto;
+
+        img{
+            width:40px;
+            height:auto;
+
+            &:hover{
+                scale:1.13;
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }
+
+    h4{
+        @include textMaker(0.73rem,700 ,$secondary );
+    }
+
+    h2{
+        @include textMaker(1.36rem,400 ,$text );
+    }
+
+    .CandidateButton{
+        @include buttonMaker();
+        background-color: $highlight;
+        @include textMaker(0.73rem,700 ,$white );
+
+        &:hover{
+            background-color: $hover1;
+            transition:0.3s ease-in-out;
+        }
+    }
+
+
+}
+
+.notification {
+    position: fixed;
+    top: 0;
+    width: 26%;
+    padding: 20px;
+    text-align: center;
+    color: $white;
+    z-index: 1000;
+    @include divMaker(30px,30px ,30px ,30px ,0px ,0px );
+  }
+  
+  .notification.success {
+    background-color: #0FAA97;
+  }
+  
+  .notification.error {
+    background-color: #EF373A;
+  }
+
+.filterblock{
+    @include divMaker(10px ,10px ,20px ,20px ,0px,0px );
+    background-color: $white;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap:wrap;
+    gap:5px;
+    @include textMaker(0.83rem,700 ,$secondary );
+    text-transform: uppercase;
+    width:100%;
+
+    span{
+        @include textMaker(1.36rem,700 ,$text );
+        margin-left:5px;
+    }
+}
+
+.publicSelect{
+    select{
+        @include divMaker(10px ,10px ,20px ,20px ,0px,0px );
+        background-color: $white;
+        width:100%;
+        @include textMaker(1rem,400 ,$text );
+        outline:none;
+    }
+    
+}
+
+.jobblock{
+    @include divMaker(20px,20px ,20px ,20px ,20px ,0 );
+    background-color: $white;
+
+    .jobhead{
+        display:flex;
+        justify-content: flex-start;
+        gap:10px;
+        align-items: center;
+        flex-wrap:wrap;
+        margin-bottom:10px;
+
+        span{
+            background-color: $background;
+            @include textMaker(0.73rem,700 ,$secondary );
+            padding:5px 20px 5px 20px;
+            border-radius:40px;
+        }
+    }
+
+    h1{
+        @include textMaker(1.36rem,700 ,$text );
+    }
+
+    .jobinfo{
+        background-color: $background;
+        border-radius:10px;
+        padding:10px 20px 10px 20px;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap:wrap;
+        margin-top:10px;
+
+        div{
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+            gap:10px;
+            @include textMaker(0.83rem,700 ,$secondary );
+            img{
+                width:20px;
+                height:auto;
+            }
+        }
+    }
+
+    .jobstat{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap:wrap;
+        gap:15px;
+        margin-top:15px;
+        margin-bottom:15px;
+
+        span{
+            @include textMaker(2rem,700 ,$highlight );
+        }
+    }
+
+    .job-link{
+        display:flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap:wrap;
+        @include textMaker(0.93rem,700 ,$highlight );
+        gap:10px;
+
+        img{
+            width:30px;
+            height:auto;
+        }
+
+        &:hover{
+            gap:26px;
+            transition: 0.3s ease-in-out;
+        }
+    }
+}
+
+.pagination-controls{
+    margin-top:20px;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap:wrap;
+    gap:15px;
+
+    img{
+
+        &:hover{
+            scale:1.13;
+            transition: 0.3s ease-in-out;
+        }
+    }
+}
+
+.default{
+    @include divMaker(30px,30px ,40px ,40px ,20px, 0px);
+    background-color: $white;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap:10px;
+    flex-wrap:wrap;
+
+    img{
+        width:260px;
+        height:auto;
+    }
+
+    h1{
+        @include textMaker(1.63rem,700 ,$secondary );
+        margin-top:20px;
+    }
+}
+
+.inputblockadd{
+
+    width:40px;
+    height:auto;
+    margin-top:27px;
+
+}
+
+
+.candheader{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img{
+        width:63px;
+        height:auto;
+
+        &:hover{
+            scale:1.13;
+            transition: 0.3s ease-in-out;
+        }
+    }
+
+    div{
+        display:flex;
+        gap:20px;
+        justify-content: flex-start;
+        align-items: center;
+
+        .profile-image{
+            width: 100px;
+            height:100px;
+            border-radius: 50%; // Makes it round
+            object-fit: cover; // Ensures the image fills the circle without distortion
+            overflow: hidden; // Prevents any content from spilling outside the circle
+            border:none;
+
+            &:hover{
+                scale:1;
+            }
+        }        
+
+        div{
+            display:block;
+
+            span{
+                background-color: $highlight;
+                padding:5px 20px 5px 20px;
+                border-radius:40px;
+                @include textMaker(0.73rem,700 ,$white );
+            }
+
+            h4{
+                @include textMaker(0.93rem,700 ,$secondary );
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top:5px;            
+            }
+
+            h1{
+                @include textMaker(1.36rem,400 ,$text );
+            }
+        }
+    }
+
+
+}
+
+
+.elementItem{
+    display:flex;
+    margin-bottom:20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap;
+    gap:20px;
+    border-bottom:1px solid $secondary;
+    padding-bottom:26px;
+
+    h1{
+        @include textMaker(1.46rem,700 ,$text );
+    }
+
+    h2{
+        @include textMaker(1.13rem,400 ,$text );
+    }
+
+    h3{
+        @include textMaker(1.43rem, 700, $highlight);
+    }
+}
+
+.blockAIeval{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap;
+    gap:20px;
+
+    div{
+        display:block;
+
+        h2{
+           @include textMaker(1rem,700 ,$text );
+           margin-top:10px;
+        }
+
+        img{
+            width:160px;
+            height:auto;
+
+        }
+    }
+
+    img{
+        width:70px;
+        height:auto;
+    }
+
+}
+
+
+.candidateblock{
+    @include divMaker(20px,20px ,20px ,20px ,20px ,0px );
+    background-color: $white;
+
+    .candidatehead{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap:wrap;
+        gap:15px;
+
+        span{
+            background-color: $highlight;
+            padding:5px 15px 5px 15px;
+            border-radius: 40px;
+            @include textMaker(0.73rem,700 ,$white );
+            text-transform: uppercase;
+        }
+
+        h4{
+            @include textMaker(0.73rem,700 ,$secondary );
+        }
+
+        div{
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap:wrap;
+            gap:5px;
+        }
+    }
+
+    .candidatebody{
+        display:flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap:15px;
+        flex-wrap:wrap;
+        margin-top:15px;
+
+        img{
+            width: 100px;
+            height:100px;
+            border-radius: 50%; // Makes it round
+            object-fit: cover; // Ensures the image fills the circle without distortion
+            overflow: hidden; // Prevents any content from spilling outside the circle
+            border:none;
+        }
+
+        h4{
+            @include textMaker(0.73rem,700 ,$secondary );
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1{
+            @include textMaker(1.32rem,700 ,$text );
+        }
+    }
+
+    .candidateinfo{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap:wrap;
+        gap:10px;
+        background-color: $background;
+        padding:10px 20px 10px 20px;
+        margin-top: 15px;
+        border-radius: 5px;
+
+        div{
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap:wrap;
+            align-items:center;
+            gap:5px;
+
+            img{
+                width:20px;
+                height:auto;
+            }
+
+            h4{
+                @include textMaker(0.83rem,700 ,$secondary );
+            }
+        }
+    }
+
+    .candidatefooter{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top: 20px;
+
+        .cand-link{
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap:5px;
+            @include textMaker(1rem,700 ,$highlight );
+
+            img{
+                width:25px;
+                height:auto;
+            }
+
+            &:hover{
+                gap:16px;
+                transition: 0.3s ease-in-out;
+            }
+        }
+
+        h3{
+            @include textMaker(1rem,700 ,$text );
+
+            span{
+                @include textMaker(1.63rem,700 ,$highlight );
+            }
+        }
+    }
+
+    
+}
+
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align modal to the top */
+    z-index: 1000;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 1rem; /* Prevent content from touching edges */
+}
+
+.modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    max-width: 90%; /* Prevent modal from being too wide */
+    width: 100%; /* Full width by default */
+    max-height: 90vh; /* Limit height to viewport height */
+    overflow-y: auto; /* Enable scrolling within the modal itself */
+}
+
+  
+  /* Modal content */
+  .modal-content {
+
+    .modal-close{
+
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        gap:15px;
+        flex-wrap:wrap;
+        margin-bottom:30px;
+
+        div{
+
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap:20px;
+
+
+            div{
+                
+                display:block;
+
+                h4{
+                    @include textMaker(0.73rem,700 ,$secondary );
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+    
+                    span{
+                        @include textMaker(1.13rem,700 ,$highlight );
+                    }
+    
+                }
+    
+                h1{
+                    @include textMaker(1rem,700 ,$text );
+                }
+
+            }
+
+
+        }
+
+        button{
+            img{
+                width:60px;
+                height:auto;
+                margin-bottom:20px;
+                &:hover{
+                    scale:1.13;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .displayFoot{
+        display:flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap:15px;
+        flex-wrap:wrap;
+        margin-top:30px;
+
+        img{
+            &:hover{
+                scale:1.13;
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }
+  }
+  
+
+.CandidateAdd{
+    background-color: $background;
+    border-radius: 10px;
+    padding:20px 15px 20px 15px;
+
+    h4{
+        @include textMaker(0.83rem,700 ,$secondary );
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    h2{
+        @include textMaker(1.3rem,700 ,$text );
+    }
+
+    button{
+        @include buttonMaker();
+        background-color: $highlight;
+        @include textMaker(0.73rem,700 ,$white );
+        margin-top:15px;
+
+        &:hover{
+            background-color: $hover1;
+            transition: 0.3s ease-in-out;
+        }
+    }
+
+    div{
+        display:flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap:15px;
+        flex-wrap:wrap;
+
+        div{
+            display:block;
+        }
+    }
+
+    .CandAddFoot{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap:15px;
+
+        h4{
+            @include textMaker(0.73rem,700 ,$secondary );
+        }
+
+        h2{
+            @include textMaker(1.3rem,700 ,$text );
+
+            span{
+                @include textMaker(1.63rem,700 ,$highlight );
+            }
+        }
+    }
+}
